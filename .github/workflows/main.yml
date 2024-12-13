@@ -14,7 +14,7 @@ jobs:
 
     # 2. SSH into the GCP VM and deploy
     - name: Deploy to GCP VM
-      uses: appleboy/ssh-action@v0.1.12
+      uses: appleboy/ssh-action@v1.2.0
       with:
         host: ${{ secrets.GCP_VM_HOST }}
         username: ${{ secrets.GCP_VM_USER }}
