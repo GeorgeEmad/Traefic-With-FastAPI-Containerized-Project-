@@ -10,7 +10,7 @@ products = [
 
 @app.get("/")
 def root():
-    return "hi port"
+    return "hi Fast Api "
 
 
 @app.get("/products")
