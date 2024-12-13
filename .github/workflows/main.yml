@@ -23,7 +23,7 @@ jobs:
         script: |
           cd /home/George-Emad/cicd/Traefic-With-FastAPI-Containerized-Project-
           git pull origin main
-          docker compose down
-          docker compose -f docker-compose.traefik.yml down 
-          docker compose up -d --build
-          docker compose -f docker-compose.traefik.yml up
+          sudo docker compose down
+          sudo docker compose -f docker-compose.traefik.yml down 
+          sudo docker compose up -d --build --detach
+          sudo docker compose -f docker-compose.traefik.yml up --detach
