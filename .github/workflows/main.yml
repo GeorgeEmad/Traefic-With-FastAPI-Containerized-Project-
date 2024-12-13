@@ -1,0 +1,29 @@
+name: Deploy to GCP
+
+on:
+  workflow_dispatch: # Allows you to trigger it manually
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. SSH into the GCP VM and deploy
+    - name: Deploy to GCP VM
+      uses: appleboy/ssh-action@v1.2.0
+      with:
+        host: ${{ secrets.GCP_VM_HOST }}
+        username: ${{ secrets.GCP_VM_USER }}
+        key: ${{ secrets.GCP_VM_PRIVATE_KEY }}
+        port: 22
+        script: |
+          cd /home/George-Emad/cicd/Traefic-With-FastAPI-Containerized-Project-
+          git pull origin main
+          sudo docker compose down
+          sudo docker compose -f docker-compose.traefik.yml down 
+          sudo docker compose up -d --build --detach
+          sudo docker compose -f docker-compose.traefik.yml up --detach
