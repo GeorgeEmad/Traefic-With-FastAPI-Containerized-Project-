@@ -29,6 +29,24 @@ services:
     networks:
       - traefik-public
 
+  postgres:
+    image: postgres:15 # Choose the PostgreSQL version you need
+    container_name: postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${PostgresUsername}
+      POSTGRES_PASSWORD: ${PostgresPassword}
+      POSTGRES_DB: fastapi
+    ports:
+      - "5432:5432" # Maps the container's PostgreSQL port to your local machine
+    volumes:
+      - postgres-data:/var/lib/postgresql/data # Maps the volume to the container's data directory
+
+
 networks:
   traefik-public:
     external: true
+
+volumes:
+  postgres-data:
+    driver: local
