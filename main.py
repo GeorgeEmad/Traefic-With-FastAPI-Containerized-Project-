@@ -5,6 +5,7 @@ products = [
     {"id":1, "name": "apple", "price": 1.0},
     {"id":2, "name": "banana", "price": 0.5},
     {"id":3, "name": "carrot", "price": 0.2},
+    {"id":3, "name": "geo", "price": 0.2},
 ]
 
 
