@@ -5,7 +5,7 @@ This repository demonstrates how to dockerize a simple FastAPI application and l
   
 
 ## Key Components
-FastAPI Application: A minimal FastAPI application defines a single API endpoint in the main.py only to showcase no logic in it.
+FastAPI Application: A minimal FastAPI application defines dummy APIs in the main.py only to showcase no logic actual in it.
 
 Dockerfile: This file specifies the instructions for building a Docker image containing the application and its dependencies.
 
